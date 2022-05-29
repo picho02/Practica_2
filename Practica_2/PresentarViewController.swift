@@ -77,7 +77,7 @@ class PresentarViewController: UIViewController {
     
 
     func cargaLocal(_ nombre: String)-> Bool{
-        let urlAdocs = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+        let urlAdocs = FileManager.default.urls(for: .libraryDirectory, in: .userDomainMask)[0]
         let urlAlArchivo = urlAdocs.appendingPathComponent(nombre)
         if (FileManager.default.fileExists(atPath: urlAlArchivo.path))
         {
@@ -91,7 +91,7 @@ class PresentarViewController: UIViewController {
         }
     }
     func guardaLocal(_ bytes:Data,_ nombre:String){
-        let urlAdocs = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+        let urlAdocs = FileManager.default.urls(for: .libraryDirectory, in: .userDomainMask)[0]
         let urlAlArchivo = urlAdocs.appendingPathComponent(nombre)
         do{
             try bytes.write(to: urlAlArchivo)
